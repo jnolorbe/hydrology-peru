@@ -1,0 +1,4 @@
+subcuenca,area_km2,ene_mm,feb_mm,mar_mm,abr_mm,may_mm,jun_mm,jul_mm,ago_mm,sep_mm,oct_mm,nov_mm,dic_mm,total_anual_mm,n_estaciones,estaciones_incluidas
+hasta_puente_antapucro,1021.80,58.59,75.32,88.87,22.13,0.98,0.04,0.06,0.42,1.93,7.61,12.57,27.34,295.86,5,Antioquia; Langa; Santiago de Tuna; San Lazaro de Escomarca; Chalilla
+hasta_puente_manchay,1443.53,46.09,60.73,70.28,16.54,1.01,0.65,0.75,1.61,2.58,6.31,9.76,21.84,238.15,6,Manchay Bajo; Antioquia; Langa; Santiago de Tuna; San Lazaro de Escomarca; Chalilla
+cuenca_total_lurin,1658.19,40.31,52.94,61.22,14.41,1.01,1.05,1.20,2.40,3.11,6.03,8.69,19.20,211.57,6,Manchay Bajo; Antioquia; Langa; Santiago de Tuna; San Lazaro de Escomarca; Chalilla

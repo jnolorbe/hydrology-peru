@@ -1,0 +1,73 @@
+archivo,dominio_AAA,confianza_dominio,metodo_asignacion_dominio,variable,es_climatologia,periodo_inicio,periodo_fin,n_meses_datos,usado_fase2_estacionalidad,usado_fase3_enso_nino_costero
+acari_caudal_volumen.csv,CHÁPARRA-CHINCHA,media,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1960-08,2005-07,540,True,True
+ancashcosta_caudal_climatologia_multicuenca.csv,HUARMEY-CHICAMA,media,nombre de cuenca (sin verificar coordenadas),caudal_volumen,True,,,0,True,False
+angostura_caudal_volumen.csv,PAMPAS-APURIMAC,alta,"coordenadas (verificado point-in-polygon, aportadas por el usuario)",caudal_volumen,False,1965-02,2010-02,362,True,True
+camana_majes_caudal_volumen.csv,CAPLINA-OCOÑA,media,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1951-08,2004-07,636,True,True
+canete_caudal_volumen.csv,CAÑETE-FORTALEZA,alta,coordenadas (verificado point-in-polygon),caudal_volumen,False,1964-08,2005-07,492,True,True
+canete_precipitacion.csv,CAÑETE-FORTALEZA,alta,nombre de cuenca (sin verificar coordenadas),precipitacion,False,1964-08,2005-07,492,True,True
+canete_precipitacion_climatologia.csv,CAÑETE-FORTALEZA,alta,nombre de cuenca (sin verificar coordenadas),precipitacion,True,,,0,True,False
+caplina_aguascalientes_caudal_volumen.csv,CAPLINA-OCOÑA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1950-01,1989-12,443,True,True
+casma_precipitacion_areal.csv,HUARMEY-CHICAMA,alta,nombre de cuenca (sin verificar coordenadas),precipitacion,False,1966-01,2006-12,492,True,True
+casma_sechin_caudal_volumen.csv,HUARMEY-CHICAMA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1973-08,2002-07,348,True,True
+chancayhuaral_precipitacion_multiestacion.csv,CAÑETE-FORTALEZA,alta,nombre de cuenca (sin verificar coordenadas),precipitacion,False,1960-01,1999-12,480,True,True
+chancayhuaral_stodomingo_caudal_volumen_crudo.csv,CAÑETE-FORTALEZA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1922-01,1999-12,936,True,True
+chancayhuaral_stodomingo_caudal_volumen_homogenizado.csv,CAÑETE-FORTALEZA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1960-01,1999-12,480,True,True
+chancaylambayeque_carhuaquero_caudal_volumen.csv,JEQUETEPEQUE-ZARUMILLA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1930-01,2004-12,900,True,True
+chao_caudal_volumen.csv,HUARMEY-CHICAMA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1956-08,2004-07,576,True,True
+chicama_caudal_volumen.csv,HUARMEY-CHICAMA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1969-08,2003-07,408,True,True
+chicama_precipitacion_areal.csv,HUARMEY-CHICAMA,alta,nombre de cuenca (sin verificar coordenadas),precipitacion,False,1970-08,2002-07,384,True,True
+chicama_precipitacion_multiestacion.csv,HUARMEY-CHICAMA,alta,nombre de cuenca (sin verificar coordenadas),precipitacion,False,1900-01,2002-07,384,True,True
+chili_caudal_volumen.csv,CAPLINA-OCOÑA,media,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1924-01,2003-12,696,True,True
+chillon_caudal_volumen.csv,CAÑETE-FORTALEZA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1956-08,2004-07,576,True,True
+chincha_sanjuan_caudal_volumen.csv,CHÁPARRA-CHINCHA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1934-01,2003-12,840,True,True
+chirapiura_caudal_volumen.csv,JEQUETEPEQUE-ZARUMILLA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1937-01,2000-12,768,True,True
+chonta_precipitacion.csv,MARAÑÓN,alta,coordenadas (verificado point-in-polygon),precipitacion,False,1977-01,1987-12,132,True,True
+chorunga_caudal_volumen_generado_lutzscholz.csv,CAPLINA-OCOÑA,alta,coordenadas (verificado point-in-polygon),caudal_volumen,False,1965-01,2002-12,456,True,True
+coata_pampahuta_precipitacion.csv,TITICACA,alta,nombre de cuenca (sin verificar coordenadas),precipitacion,False,1962-01,2006-12,540,True,True
+diquelosespanoles_caudal_volumen.csv,CAPLINA-OCOÑA,alta,"coordenadas (verificado point-in-polygon, aportadas por el usuario)",caudal_volumen,False,1968-09,1989-12,172,True,True
+fortaleza_caudal_volumen.csv,CAÑETE-FORTALEZA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1963-08,2003-07,480,True,True
+huarmey_precipitacion_multiestacion.csv,HUARMEY-CHICAMA,alta,nombre de cuenca (sin verificar coordenadas),precipitacion,False,1989-01,2005-12,204,True,True
+huarmeyculebras_caudal_volumen_multicuenca.csv,HUARMEY-CHICAMA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1973-01,2002-07,355,True,True
+huaura_caudal_volumen_multicuenca.csv,CAÑETE-FORTALEZA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1911-01,2008-12,1176,True,True
+huaura_precipitacion_multiestacion.csv,CAÑETE-FORTALEZA,alta,nombre de cuenca (sin verificar coordenadas),precipitacion,False,1963-01,2008-12,552,True,True
+huaylas_caudal_climatologia_multicanal.csv,HUARMEY-CHICAMA,media,nombre de cuenca (sin verificar coordenadas),caudal_volumen,True,,,0,True,False
+huaylas_precipitacion_climatologia.csv,HUARMEY-CHICAMA,media,nombre de cuenca (sin verificar coordenadas),precipitacion,True,,,0,True,False
+ica_caudal_diario.csv,CHÁPARRA-CHINCHA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1922-01,2005-12,30681,True,True
+ica_volumen_mensual.csv,CHÁPARRA-CHINCHA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1922-01,2005-12,1008,True,True
+jequetepeque_caudal_volumen.csv,JEQUETEPEQUE-ZARUMILLA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1964-08,2003-07,468,True,True
+jequetepeque_precipitacion_multiestacion.csv,JEQUETEPEQUE-ZARUMILLA,alta,nombre de cuenca (sin verificar coordenadas),precipitacion,False,1958-01,2005-12,576,True,True
+laleche_caudal_volumen.csv,JEQUETEPEQUE-ZARUMILLA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1960-01,2005-12,552,True,True
+laleche_precipitacion.csv,JEQUETEPEQUE-ZARUMILLA,alta,nombre de cuenca (sin verificar coordenadas),precipitacion,False,1964-01,1982-12,228,True,True
+lluclla_caudal_volumen.csv,CAPLINA-OCOÑA,alta,"coordenadas (verificado point-in-polygon, aportadas por el usuario)",caudal_volumen,False,1977-09,1986-10,90,True,True
+locumba_multiestacion_caudal.csv,CAPLINA-OCOÑA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1993-01,1996-12,48,True,True
+locumba_puenteviejo_caudal_volumen.csv,CAPLINA-OCOÑA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1972-01,1999-12,335,True,True
+lurin_caudal_volumen.csv,CAÑETE-FORTALEZA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1964-01,2002-12,468,True,True
+lurin_precipitacion_areal_thiessen_multianual.csv,CAÑETE-FORTALEZA,alta,nombre de cuenca (sin verificar coordenadas),precipitacion,False,,,0,True,False
+lurin_precipitacion_multiestacion.csv,CAÑETE-FORTALEZA,alta,nombre de cuenca (sin verificar coordenadas),precipitacion,False,1964-01,2002-12,468,True,True
+majes_precipitacion_estaciones_adicionales_multiestacion.csv,CAPLINA-OCOÑA,media,nombre de cuenca (sin verificar coordenadas),precipitacion,False,1961-03,2000-03,381,True,True
+majes_precipitacion_multiestacion.csv,CAPLINA-OCOÑA,media,nombre de cuenca (sin verificar coordenadas),precipitacion,False,1963-08,2009-07,552,True,True
+mala_lacapilla_caudal_volumen.csv,CAÑETE-FORTALEZA,alta,coordenadas (verificado point-in-polygon),caudal_volumen,False,1938-08,2004-07,792,True,True
+mantaroalto_caudal_volumen_multicuenca.csv,MANTARO,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1960-01,2007-12,576,True,True
+maure_chuapalca_caudal_volumen.csv,CAPLINA-OCOÑA,alta,"coordenadas (verificado point-in-polygon, aportadas por el usuario)",caudal_volumen,False,1963-01,2003-12,392,True,True
+maure_kovirebofedal_caudal.csv,CAPLINA-OCOÑA,alta,"coordenadas (verificado point-in-polygon, aportadas por el usuario)",caudal_volumen,False,1993-01,1996-12,48,True,True
+maure_lafrontera_caudal_volumen.csv,CAPLINA-OCOÑA,alta,"coordenadas (verificado point-in-polygon, aportadas por el usuario)",caudal_volumen,False,1964-01,2003-12,236,True,True
+mochevirusanta_caudal_volumen_multicuenca.csv,HUARMEY-CHICAMA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1956-08,2004-07,576,True,True
+nascapalpa_caudal_volumen_multiestacion.csv,CHÁPARRA-CHINCHA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1984-01,2005-12,264,True,True
+ocona_caudal_volumen.csv,CAPLINA-OCOÑA,alta,coordenadas (verificado point-in-polygon),caudal_volumen,False,1965-09,2006-08,492,True,True
+ocona_caudal_volumen_generado_lutzscholz.csv,CAPLINA-OCOÑA,alta,coordenadas (verificado point-in-polygon),caudal_volumen,False,1965-01,2002-12,456,True,True
+ocona_precipitacion_areal.csv,CAPLINA-OCOÑA,alta,nombre de cuenca (sin verificar coordenadas),precipitacion,False,1965-09,2006-08,492,True,True
+pisco_precipitacion_climatologia_multiestacion.csv,CHÁPARRA-CHINCHA,alta,nombre de cuenca (sin verificar coordenadas),precipitacion,True,,,0,True,False
+puentecolgantesibayo_caudal_volumen.csv,CAPLINA-OCOÑA,alta,"coordenadas (verificado point-in-polygon, aportadas por el usuario)",caudal_volumen,False,1968-09,1993-03,268,True,True
+rimac_caudal_volumen.csv,CAÑETE-FORTALEZA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1964-01,2009-12,552,True,True
+sama_coruca_caudal_volumen.csv,CAPLINA-OCOÑA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,2005-06,2008-12,40,True,True
+sama_multiestacion_caudal.csv,CAPLINA-OCOÑA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1993-01,1996-12,48,True,True
+supe_caudal_volumen.csv,CAÑETE-FORTALEZA,media,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1962-08,2002-07,480,True,True
+tacna_piedrasblancas_caudal_volumen.csv,CAPLINA-OCOÑA,media,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1950-01,1989-12,447,True,True
+tumbes_caudal_volumen.csv,JEQUETEPEQUE-ZARUMILLA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1963-01,2008-12,552,True,True
+tumbes_precipitacion_multiestacion.csv,JEQUETEPEQUE-ZARUMILLA,alta,nombre de cuenca (sin verificar coordenadas),precipitacion,False,1964-01,2008-12,540,True,True
+urubamba_caudal_volumen.csv,URUBAMBA-VILCANOTA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1964-01,2008-12,540,True,True
+urubamba_precipitacion_multiestacion.csv,URUBAMBA-VILCANOTA,alta,nombre de cuenca (sin verificar coordenadas),precipitacion,False,1964-01,2008-12,540,True,True
+zana_caudal_persistencia_climatologia.csv,JEQUETEPEQUE-ZARUMILLA,media,nombre de cuenca (sin verificar coordenadas),caudal_volumen,True,,,0,True,False
+zana_precipitacion.csv,JEQUETEPEQUE-ZARUMILLA,media,nombre de cuenca (sin verificar coordenadas),precipitacion,False,1977-01,1987-12,132,True,True
+zarumilla_caudal_volumen_multiestacion.csv,JEQUETEPEQUE-ZARUMILLA,alta,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1960-01,2005-12,552,True,True
+zarumilla_precipitacion_diaria.csv,JEQUETEPEQUE-ZARUMILLA,alta,nombre de cuenca (sin verificar coordenadas),precipitacion,False,2003-01,2003-12,365,True,True
