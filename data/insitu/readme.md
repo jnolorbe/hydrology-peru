@@ -14,6 +14,17 @@ para validar dos hallazgos obtenidos con GRACE/GRACE-FO (notebooks 02 y 03):
   QA/QC y coordenadas, heredada sin cambios de la fuente original. Se excluyeron 2 datasets adicionales
   (`cabanillaslampa`, `huancanesuches`) por cubrir un único año calendario, insuficiente para una
   climatología o para evaluar cobertura de eventos ENSO.
+  Además, 3 archivos se conservan en esta carpeta pero el Notebook 04 los excluye de la validación
+  (lista `EXCLUDED_FILES`, que imprime el motivo al ejecutarse), tras un control de calidad de sus
+  climatologías:
+  - `chili_caudal_volumen.csv`: 4 valores de caudal son años calendario (1925-08 = 1926,
+    1954-09 = 1955, 1994-04 = 1995, 1994-06 = 1996 m³/s), error de transcripción al transponer la
+    tabla fuente; su climatología resulta en diente de sierra sin estación húmeda/seca.
+  - `rimac_caudal_volumen.csv`: sin señal hidrológica; ciclo anual plano (Chosica ≈ 35 m³/s todos los
+    meses), valores uniformes entre 15 y 55 m³/s y autocorrelación mensual ≈ 0.06 (ruido aleatorio).
+  - `canete_precipitacion_climatologia.csv`: meses mal etiquetados; pico en jun–ago, desfasado ~6 meses
+    respecto a la serie mensual de las mismas estaciones (`canete_precipitacion.csv`, pico en feb),
+    probablemente columnas en año hidrológico (sep–ago).
 - `insitu_index.csv`: índice con el dominio hidrográfico AAA asignado a cada dataset (y el método:
   coordenadas verificadas por point-in-polygon, o nombre de cuenca), el período real de registro,
   y si el dataset se usó en la validación de estacionalidad y/o en la del dipolo ENSO.
