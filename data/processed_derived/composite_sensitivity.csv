@@ -1,0 +1,273 @@
+variant,regime,unit,n_regime_months,composite_pct_sigma,p_perm,q_fdr_56
+base,El Nino E,JEQUETEPEQUE-ZARUMILLA,13,118.6,0.0035,0.196
+base,El Nino E,HUARMEY-CHICAMA,13,56.8,0.1076,1.0
+base,El Nino E,MARAÑÓN,13,69.3,0.0139,0.3892
+base,El Nino E,HUALLAGA,13,41.9,0.2326,1.0
+base,El Nino E,AMAZONAS,13,25.6,0.4757,1.0
+base,El Nino E,CAÑETE-FORTALEZA,13,8.7,0.7708,1.0
+base,El Nino E,MANTARO,13,-0.9,0.9688,1.0
+base,El Nino E,CHÁPARRA-CHINCHA,13,-7.7,0.8472,1.0
+base,El Nino E,UCAYALI,13,0.1,1.0,1.0
+base,El Nino E,PAMPAS-APURIMAC,13,-31.8,0.5069,1.0
+base,El Nino E,URUBAMBA-VILCANOTA,13,-17.3,0.7257,1.0
+base,El Nino E,MADRE DE DIOS,13,0.2,0.9965,1.0
+base,El Nino E,CAPLINA-OCOÑA,13,-9.5,0.7743,1.0
+base,El Nino E,TITICACA,13,-19.9,0.6771,1.0
+base,El Nino E,NORTE,13,87.7,0.0139,
+base,El Nino E,SUR,13,-19.6,0.6562,
+base,El Nino E,N-S,13,107.3,0.0243,
+base,El Nino C,JEQUETEPEQUE-ZARUMILLA,73,4.2,0.8993,1.0
+base,El Nino C,HUARMEY-CHICAMA,73,24.0,0.4792,1.0
+base,El Nino C,MARAÑÓN,73,21.3,0.5139,1.0
+base,El Nino C,HUALLAGA,73,33.2,0.3924,1.0
+base,El Nino C,AMAZONAS,73,4.3,0.9306,1.0
+base,El Nino C,CAÑETE-FORTALEZA,73,16.3,0.6424,1.0
+base,El Nino C,MANTARO,73,18.4,0.6667,1.0
+base,El Nino C,CHÁPARRA-CHINCHA,73,18.1,0.5938,1.0
+base,El Nino C,UCAYALI,73,37.5,0.3264,1.0
+base,El Nino C,PAMPAS-APURIMAC,73,29.4,0.4167,1.0
+base,El Nino C,URUBAMBA-VILCANOTA,73,41.9,0.2604,1.0
+base,El Nino C,MADRE DE DIOS,73,39.7,0.2465,1.0
+base,El Nino C,CAPLINA-OCOÑA,73,20.3,0.4931,1.0
+base,El Nino C,TITICACA,73,38.1,0.2743,1.0
+base,El Nino C,NORTE,73,14.1,0.6319,
+base,El Nino C,SUR,73,32.4,0.3229,
+base,El Nino C,N-S,73,-18.3,0.5556,
+base,La Nina C,JEQUETEPEQUE-ZARUMILLA,50,-14.5,0.7535,1.0
+base,La Nina C,HUARMEY-CHICAMA,50,2.4,0.9514,1.0
+base,La Nina C,MARAÑÓN,50,-7.5,0.9236,1.0
+base,La Nina C,HUALLAGA,50,0.9,0.9965,1.0
+base,La Nina C,AMAZONAS,50,-39.7,0.4306,1.0
+base,La Nina C,CAÑETE-FORTALEZA,50,-5.1,0.9236,1.0
+base,La Nina C,MANTARO,50,-7.7,0.8993,1.0
+base,La Nina C,CHÁPARRA-CHINCHA,50,-23.6,0.6424,1.0
+base,La Nina C,UCAYALI,50,8.0,0.934,1.0
+base,La Nina C,PAMPAS-APURIMAC,50,-28.6,0.6111,1.0
+base,La Nina C,URUBAMBA-VILCANOTA,50,-12.2,0.8924,1.0
+base,La Nina C,MADRE DE DIOS,50,-16.3,0.8056,1.0
+base,La Nina C,CAPLINA-OCOÑA,50,-24.6,0.5938,1.0
+base,La Nina C,TITICACA,50,-24.2,0.6597,1.0
+base,La Nina C,NORTE,50,-6.0,0.8924,
+base,La Nina C,SUR,50,-22.4,0.6736,
+base,La Nina C,N-S,50,16.4,0.7465,
+base,"Cold E (E<=-1, C>-1)",JEQUETEPEQUE-ZARUMILLA,35,13.8,0.5972,1.0
+base,"Cold E (E<=-1, C>-1)",HUARMEY-CHICAMA,35,17.6,0.3889,1.0
+base,"Cold E (E<=-1, C>-1)",MARAÑÓN,35,17.2,0.3681,1.0
+base,"Cold E (E<=-1, C>-1)",HUALLAGA,35,20.1,0.3333,1.0
+base,"Cold E (E<=-1, C>-1)",AMAZONAS,35,2.7,0.9028,1.0
+base,"Cold E (E<=-1, C>-1)",CAÑETE-FORTALEZA,35,10.3,0.6007,1.0
+base,"Cold E (E<=-1, C>-1)",MANTARO,35,7.3,0.7674,1.0
+base,"Cold E (E<=-1, C>-1)",CHÁPARRA-CHINCHA,35,8.6,0.7083,1.0
+base,"Cold E (E<=-1, C>-1)",UCAYALI,35,14.1,0.5556,1.0
+base,"Cold E (E<=-1, C>-1)",PAMPAS-APURIMAC,35,4.1,0.8576,1.0
+base,"Cold E (E<=-1, C>-1)",URUBAMBA-VILCANOTA,35,12.9,0.6146,1.0
+base,"Cold E (E<=-1, C>-1)",MADRE DE DIOS,35,11.7,0.625,1.0
+base,"Cold E (E<=-1, C>-1)",CAPLINA-OCOÑA,35,7.5,0.7431,1.0
+base,"Cold E (E<=-1, C>-1)",TITICACA,35,8.6,0.7222,1.0
+base,"Cold E (E<=-1, C>-1)",NORTE,35,15.7,0.4167,
+base,"Cold E (E<=-1, C>-1)",SUR,35,8.3,0.7188,
+base,"Cold E (E<=-1, C>-1)",N-S,35,7.4,0.7882,
+detrended,El Nino E,JEQUETEPEQUE-ZARUMILLA,13,85.7,0.0035,0.196
+detrended,El Nino E,HUARMEY-CHICAMA,13,34.2,0.3368,0.9792
+detrended,El Nino E,MARAÑÓN,13,54.0,0.059,0.9792
+detrended,El Nino E,HUALLAGA,13,36.0,0.316,0.9792
+detrended,El Nino E,AMAZONAS,13,27.6,0.4167,0.9792
+detrended,El Nino E,CAÑETE-FORTALEZA,13,-4.2,0.8889,0.9792
+detrended,El Nino E,MANTARO,13,-12.4,0.7361,0.9792
+detrended,El Nino E,CHÁPARRA-CHINCHA,13,-11.5,0.7431,0.9792
+detrended,El Nino E,UCAYALI,13,6.9,0.875,0.9792
+detrended,El Nino E,PAMPAS-APURIMAC,13,-16.9,0.6806,0.9792
+detrended,El Nino E,URUBAMBA-VILCANOTA,13,-5.0,0.8993,0.9792
+detrended,El Nino E,MADRE DE DIOS,13,15.9,0.7049,0.9792
+detrended,El Nino E,CAPLINA-OCOÑA,13,-4.9,0.9062,0.9792
+detrended,El Nino E,TITICACA,13,1.8,0.9722,0.9792
+detrended,El Nino E,NORTE,13,59.9,0.0347,
+detrended,El Nino E,SUR,13,-6.2,0.8854,
+detrended,El Nino E,N-S,13,66.1,0.0451,
+detrended,El Nino C,JEQUETEPEQUE-ZARUMILLA,73,16.8,0.5174,0.9792
+detrended,El Nino C,HUARMEY-CHICAMA,73,32.6,0.316,0.9792
+detrended,El Nino C,MARAÑÓN,73,27.2,0.4028,0.9792
+detrended,El Nino C,HUALLAGA,73,35.4,0.3438,0.9792
+detrended,El Nino C,AMAZONAS,73,3.6,0.934,0.9792
+detrended,El Nino C,CAÑETE-FORTALEZA,73,21.2,0.5208,0.9792
+detrended,El Nino C,MANTARO,73,22.8,0.5799,0.9792
+detrended,El Nino C,CHÁPARRA-CHINCHA,73,19.5,0.559,0.9792
+detrended,El Nino C,UCAYALI,73,35.0,0.3576,0.9792
+detrended,El Nino C,PAMPAS-APURIMAC,73,23.7,0.4931,0.9792
+detrended,El Nino C,URUBAMBA-VILCANOTA,73,37.1,0.3056,0.9792
+detrended,El Nino C,MADRE DE DIOS,73,33.7,0.3368,0.9792
+detrended,El Nino C,CAPLINA-OCOÑA,73,18.6,0.5417,0.9792
+detrended,El Nino C,TITICACA,73,29.8,0.3785,0.9792
+detrended,El Nino C,NORTE,73,24.7,0.3715,
+detrended,El Nino C,SUR,73,27.3,0.4132,
+detrended,El Nino C,N-S,73,-2.6,0.8958,
+detrended,La Nina C,JEQUETEPEQUE-ZARUMILLA,50,-8.1,0.8611,0.9792
+detrended,La Nina C,HUARMEY-CHICAMA,50,6.8,0.9236,0.9792
+detrended,La Nina C,MARAÑÓN,50,-4.6,0.9479,0.9792
+detrended,La Nina C,HUALLAGA,50,2.0,0.9792,0.9792
+detrended,La Nina C,AMAZONAS,50,-40.0,0.434,0.9792
+detrended,La Nina C,CAÑETE-FORTALEZA,50,-2.7,0.9688,0.9792
+detrended,La Nina C,MANTARO,50,-5.5,0.934,0.9792
+detrended,La Nina C,CHÁPARRA-CHINCHA,50,-22.9,0.6597,0.9792
+detrended,La Nina C,UCAYALI,50,6.7,0.934,0.9792
+detrended,La Nina C,PAMPAS-APURIMAC,50,-31.5,0.5764,0.9792
+detrended,La Nina C,URUBAMBA-VILCANOTA,50,-14.6,0.8507,0.9792
+detrended,La Nina C,MADRE DE DIOS,50,-19.3,0.7917,0.9792
+detrended,La Nina C,CAPLINA-OCOÑA,50,-25.5,0.5833,0.9792
+detrended,La Nina C,TITICACA,50,-28.4,0.6181,0.9792
+detrended,La Nina C,NORTE,50,-0.7,0.9826,
+detrended,La Nina C,SUR,50,-25.0,0.6528,
+detrended,La Nina C,N-S,50,24.3,0.5104,
+detrended,"Cold E (E<=-1, C>-1)",JEQUETEPEQUE-ZARUMILLA,35,14.6,0.5104,0.9792
+detrended,"Cold E (E<=-1, C>-1)",HUARMEY-CHICAMA,35,18.1,0.4062,0.9792
+detrended,"Cold E (E<=-1, C>-1)",MARAÑÓN,35,17.6,0.3264,0.9792
+detrended,"Cold E (E<=-1, C>-1)",HUALLAGA,35,20.3,0.3403,0.9792
+detrended,"Cold E (E<=-1, C>-1)",AMAZONAS,35,2.7,0.9062,0.9792
+detrended,"Cold E (E<=-1, C>-1)",CAÑETE-FORTALEZA,35,10.5,0.5625,0.9792
+detrended,"Cold E (E<=-1, C>-1)",MANTARO,35,7.5,0.7292,0.9792
+detrended,"Cold E (E<=-1, C>-1)",CHÁPARRA-CHINCHA,35,8.6,0.6979,0.9792
+detrended,"Cold E (E<=-1, C>-1)",UCAYALI,35,13.9,0.5556,0.9792
+detrended,"Cold E (E<=-1, C>-1)",PAMPAS-APURIMAC,35,3.8,0.8854,0.9792
+detrended,"Cold E (E<=-1, C>-1)",URUBAMBA-VILCANOTA,35,12.6,0.6076,0.9792
+detrended,"Cold E (E<=-1, C>-1)",MADRE DE DIOS,35,11.3,0.6181,0.9792
+detrended,"Cold E (E<=-1, C>-1)",CAPLINA-OCOÑA,35,7.4,0.7431,0.9792
+detrended,"Cold E (E<=-1, C>-1)",TITICACA,35,8.1,0.7153,0.9792
+detrended,"Cold E (E<=-1, C>-1)",NORTE,35,16.3,0.3403,
+detrended,"Cold E (E<=-1, C>-1)",SUR,35,8.0,0.7222,
+detrended,"Cold E (E<=-1, C>-1)",N-S,35,8.4,0.6562,
+without_2023_25,El Nino E,JEQUETEPEQUE-ZARUMILLA,6,7.5,0.9132,0.9653
+without_2023_25,El Nino E,HUARMEY-CHICAMA,6,-13.6,0.809,0.9653
+without_2023_25,El Nino E,MARAÑÓN,6,7.1,0.9097,0.9653
+without_2023_25,El Nino E,HUALLAGA,6,-11.3,0.8785,0.9653
+without_2023_25,El Nino E,AMAZONAS,6,26.0,0.6701,0.9653
+without_2023_25,El Nino E,CAÑETE-FORTALEZA,6,-42.4,0.4132,0.9653
+without_2023_25,El Nino E,MANTARO,6,-62.7,0.2847,0.9653
+without_2023_25,El Nino E,CHÁPARRA-CHINCHA,6,-47.0,0.3785,0.9653
+without_2023_25,El Nino E,UCAYALI,6,-34.6,0.6528,0.9653
+without_2023_25,El Nino E,PAMPAS-APURIMAC,6,-60.6,0.2951,0.9653
+without_2023_25,El Nino E,URUBAMBA-VILCANOTA,6,-41.6,0.5729,0.9653
+without_2023_25,El Nino E,MADRE DE DIOS,6,-6.2,0.9306,0.9653
+without_2023_25,El Nino E,CAPLINA-OCOÑA,6,-37.4,0.4479,0.9653
+without_2023_25,El Nino E,TITICACA,6,-26.9,0.7049,0.9653
+without_2023_25,El Nino E,NORTE,6,-3.0,0.9583,
+without_2023_25,El Nino E,SUR,6,-41.6,0.5174,
+without_2023_25,El Nino E,N-S,6,38.6,0.5243,
+without_2023_25,El Nino C,JEQUETEPEQUE-ZARUMILLA,69,-4.1,0.8889,0.9653
+without_2023_25,El Nino C,HUARMEY-CHICAMA,69,20.0,0.6319,0.9653
+without_2023_25,El Nino C,MARAÑÓN,69,18.3,0.6319,0.9653
+without_2023_25,El Nino C,HUALLAGA,69,32.4,0.4444,0.9653
+without_2023_25,El Nino C,AMAZONAS,69,4.8,0.9306,0.9653
+without_2023_25,El Nino C,CAÑETE-FORTALEZA,69,12.8,0.7465,0.9653
+without_2023_25,El Nino C,MANTARO,69,14.5,0.7743,0.9653
+without_2023_25,El Nino C,CHÁPARRA-CHINCHA,69,15.6,0.6875,0.9653
+without_2023_25,El Nino C,UCAYALI,69,38.6,0.3368,0.9653
+without_2023_25,El Nino C,PAMPAS-APURIMAC,69,29.7,0.4514,0.9653
+without_2023_25,El Nino C,URUBAMBA-VILCANOTA,69,42.4,0.2812,0.9653
+without_2023_25,El Nino C,MADRE DE DIOS,69,41.7,0.2743,0.9653
+without_2023_25,El Nino C,CAPLINA-OCOÑA,69,19.5,0.5556,0.9653
+without_2023_25,El Nino C,TITICACA,69,39.9,0.2882,0.9653
+without_2023_25,El Nino C,NORTE,69,8.0,0.8021,
+without_2023_25,El Nino C,SUR,69,32.9,0.3507,
+without_2023_25,El Nino C,N-S,69,-24.9,0.4618,
+without_2023_25,La Nina C,JEQUETEPEQUE-ZARUMILLA,46,-13.1,0.7917,0.9653
+without_2023_25,La Nina C,HUARMEY-CHICAMA,46,3.3,0.9444,0.9653
+without_2023_25,La Nina C,MARAÑÓN,46,-3.5,0.941,0.9653
+without_2023_25,La Nina C,HUALLAGA,46,5.7,0.9375,0.9653
+without_2023_25,La Nina C,AMAZONAS,46,-30.1,0.559,0.9653
+without_2023_25,La Nina C,CAÑETE-FORTALEZA,46,-2.0,0.9444,0.9653
+without_2023_25,La Nina C,MANTARO,46,-3.3,0.9653,0.9653
+without_2023_25,La Nina C,CHÁPARRA-CHINCHA,46,-19.8,0.6979,0.9653
+without_2023_25,La Nina C,UCAYALI,46,15.3,0.816,0.9653
+without_2023_25,La Nina C,PAMPAS-APURIMAC,46,-22.4,0.6458,0.9653
+without_2023_25,La Nina C,URUBAMBA-VILCANOTA,46,-5.6,0.9583,0.9653
+without_2023_25,La Nina C,MADRE DE DIOS,46,-9.8,0.8681,0.9653
+without_2023_25,La Nina C,CAPLINA-OCOÑA,46,-22.1,0.5868,0.9653
+without_2023_25,La Nina C,TITICACA,46,-18.1,0.7396,0.9653
+without_2023_25,La Nina C,NORTE,46,-4.9,0.9271,
+without_2023_25,La Nina C,SUR,46,-17.1,0.7292,
+without_2023_25,La Nina C,N-S,46,12.2,0.75,
+without_2023_25,"Cold E (E<=-1, C>-1)",JEQUETEPEQUE-ZARUMILLA,34,10.8,0.6875,0.9653
+without_2023_25,"Cold E (E<=-1, C>-1)",HUARMEY-CHICAMA,34,17.3,0.4306,0.9653
+without_2023_25,"Cold E (E<=-1, C>-1)",MARAÑÓN,34,16.8,0.4167,0.9653
+without_2023_25,"Cold E (E<=-1, C>-1)",HUALLAGA,34,21.0,0.3611,0.9653
+without_2023_25,"Cold E (E<=-1, C>-1)",AMAZONAS,34,2.1,0.9132,0.9653
+without_2023_25,"Cold E (E<=-1, C>-1)",CAÑETE-FORTALEZA,34,9.4,0.6632,0.9653
+without_2023_25,"Cold E (E<=-1, C>-1)",MANTARO,34,6.3,0.8194,0.9653
+without_2023_25,"Cold E (E<=-1, C>-1)",CHÁPARRA-CHINCHA,34,7.7,0.7535,0.9653
+without_2023_25,"Cold E (E<=-1, C>-1)",UCAYALI,34,15.2,0.559,0.9653
+without_2023_25,"Cold E (E<=-1, C>-1)",PAMPAS-APURIMAC,34,4.6,0.8576,0.9653
+without_2023_25,"Cold E (E<=-1, C>-1)",URUBAMBA-VILCANOTA,34,13.6,0.6181,0.9653
+without_2023_25,"Cold E (E<=-1, C>-1)",MADRE DE DIOS,34,13.2,0.5729,0.9653
+without_2023_25,"Cold E (E<=-1, C>-1)",CAPLINA-OCOÑA,34,7.8,0.7431,0.9653
+without_2023_25,"Cold E (E<=-1, C>-1)",TITICACA,34,10.1,0.6944,0.9653
+without_2023_25,"Cold E (E<=-1, C>-1)",NORTE,34,14.0,0.5278,
+without_2023_25,"Cold E (E<=-1, C>-1)",SUR,34,9.0,0.7188,
+without_2023_25,"Cold E (E<=-1, C>-1)",N-S,34,5.0,0.8715,
+detrended_without_2023_25,El Nino E,JEQUETEPEQUE-ZARUMILLA,6,26.8,0.5938,1.0
+detrended_without_2023_25,El Nino E,HUARMEY-CHICAMA,6,-0.3,1.0,1.0
+detrended_without_2023_25,El Nino E,MARAÑÓN,6,16.0,0.7778,1.0
+detrended_without_2023_25,El Nino E,HUALLAGA,6,-7.9,0.9167,1.0
+detrended_without_2023_25,El Nino E,AMAZONAS,6,24.9,0.684,1.0
+detrended_without_2023_25,El Nino E,CAÑETE-FORTALEZA,6,-34.8,0.5069,1.0
+detrended_without_2023_25,El Nino E,MANTARO,6,-56.0,0.3472,1.0
+detrended_without_2023_25,El Nino E,CHÁPARRA-CHINCHA,6,-44.8,0.4097,1.0
+detrended_without_2023_25,El Nino E,UCAYALI,6,-38.6,0.5972,1.0
+detrended_without_2023_25,El Nino E,PAMPAS-APURIMAC,6,-69.4,0.1875,1.0
+detrended_without_2023_25,El Nino E,URUBAMBA-VILCANOTA,6,-48.9,0.4514,1.0
+detrended_without_2023_25,El Nino E,MADRE DE DIOS,6,-15.4,0.8576,1.0
+detrended_without_2023_25,El Nino E,CAPLINA-OCOÑA,6,-40.1,0.4375,1.0
+detrended_without_2023_25,El Nino E,TITICACA,6,-39.7,0.4965,1.0
+detrended_without_2023_25,El Nino E,NORTE,6,13.3,0.7743,
+detrended_without_2023_25,El Nino E,SUR,6,-49.5,0.3785,
+detrended_without_2023_25,El Nino E,N-S,6,62.7,0.066,
+detrended_without_2023_25,El Nino C,JEQUETEPEQUE-ZARUMILLA,69,14.1,0.6146,1.0
+detrended_without_2023_25,El Nino C,HUARMEY-CHICAMA,69,32.5,0.375,1.0
+detrended_without_2023_25,El Nino C,MARAÑÓN,69,26.7,0.4583,1.0
+detrended_without_2023_25,El Nino C,HUALLAGA,69,35.7,0.3785,1.0
+detrended_without_2023_25,El Nino C,AMAZONAS,69,3.7,0.9514,1.0
+detrended_without_2023_25,El Nino C,CAÑETE-FORTALEZA,69,19.9,0.6007,1.0
+detrended_without_2023_25,El Nino C,MANTARO,69,20.8,0.6562,1.0
+detrended_without_2023_25,El Nino C,CHÁPARRA-CHINCHA,69,17.6,0.6597,1.0
+detrended_without_2023_25,El Nino C,UCAYALI,69,34.9,0.4062,1.0
+detrended_without_2023_25,El Nino C,PAMPAS-APURIMAC,69,21.4,0.5903,1.0
+detrended_without_2023_25,El Nino C,URUBAMBA-VILCANOTA,69,35.6,0.3889,1.0
+detrended_without_2023_25,El Nino C,MADRE DE DIOS,69,33.1,0.4132,1.0
+detrended_without_2023_25,El Nino C,CAPLINA-OCOÑA,69,17.0,0.6076,1.0
+detrended_without_2023_25,El Nino C,TITICACA,69,27.9,0.4583,1.0
+detrended_without_2023_25,El Nino C,NORTE,69,23.3,0.4375,
+detrended_without_2023_25,El Nino C,SUR,69,25.5,0.4826,
+detrended_without_2023_25,El Nino C,N-S,69,-2.2,0.9201,
+detrended_without_2023_25,La Nina C,JEQUETEPEQUE-ZARUMILLA,46,0.0,1.0,1.0
+detrended_without_2023_25,La Nina C,HUARMEY-CHICAMA,46,12.3,0.8299,1.0
+detrended_without_2023_25,La Nina C,MARAÑÓN,46,2.5,0.9757,1.0
+detrended_without_2023_25,La Nina C,HUALLAGA,46,8.0,0.9271,1.0
+detrended_without_2023_25,La Nina C,AMAZONAS,46,-30.9,0.5382,1.0
+detrended_without_2023_25,La Nina C,CAÑETE-FORTALEZA,46,3.1,0.9549,1.0
+detrended_without_2023_25,La Nina C,MANTARO,46,1.3,0.9861,1.0
+detrended_without_2023_25,La Nina C,CHÁPARRA-CHINCHA,46,-18.3,0.7188,1.0
+detrended_without_2023_25,La Nina C,UCAYALI,46,12.6,0.8681,1.0
+detrended_without_2023_25,La Nina C,PAMPAS-APURIMAC,46,-28.4,0.5903,1.0
+detrended_without_2023_25,La Nina C,URUBAMBA-VILCANOTA,46,-10.5,0.8715,1.0
+detrended_without_2023_25,La Nina C,MADRE DE DIOS,46,-16.1,0.7986,1.0
+detrended_without_2023_25,La Nina C,CAPLINA-OCOÑA,46,-24.0,0.5868,1.0
+detrended_without_2023_25,La Nina C,TITICACA,46,-26.7,0.6111,1.0
+detrended_without_2023_25,La Nina C,NORTE,46,6.2,0.8993,
+detrended_without_2023_25,La Nina C,SUR,46,-22.4,0.6771,
+detrended_without_2023_25,La Nina C,N-S,46,28.6,0.4132,
+detrended_without_2023_25,"Cold E (E<=-1, C>-1)",JEQUETEPEQUE-ZARUMILLA,34,14.0,0.5278,1.0
+detrended_without_2023_25,"Cold E (E<=-1, C>-1)",HUARMEY-CHICAMA,34,19.5,0.4028,1.0
+detrended_without_2023_25,"Cold E (E<=-1, C>-1)",MARAÑÓN,34,18.3,0.3715,1.0
+detrended_without_2023_25,"Cold E (E<=-1, C>-1)",HUALLAGA,34,21.6,0.3507,1.0
+detrended_without_2023_25,"Cold E (E<=-1, C>-1)",AMAZONAS,34,1.9,0.9271,1.0
+detrended_without_2023_25,"Cold E (E<=-1, C>-1)",CAÑETE-FORTALEZA,34,10.7,0.5972,1.0
+detrended_without_2023_25,"Cold E (E<=-1, C>-1)",MANTARO,34,7.4,0.7708,1.0
+detrended_without_2023_25,"Cold E (E<=-1, C>-1)",CHÁPARRA-CHINCHA,34,8.1,0.7361,1.0
+detrended_without_2023_25,"Cold E (E<=-1, C>-1)",UCAYALI,34,14.5,0.5799,1.0
+detrended_without_2023_25,"Cold E (E<=-1, C>-1)",PAMPAS-APURIMAC,34,3.1,0.9236,1.0
+detrended_without_2023_25,"Cold E (E<=-1, C>-1)",URUBAMBA-VILCANOTA,34,12.4,0.6424,1.0
+detrended_without_2023_25,"Cold E (E<=-1, C>-1)",MADRE DE DIOS,34,11.7,0.625,1.0
+detrended_without_2023_25,"Cold E (E<=-1, C>-1)",CAPLINA-OCOÑA,34,7.4,0.75,1.0
+detrended_without_2023_25,"Cold E (E<=-1, C>-1)",TITICACA,34,8.0,0.75,1.0
+detrended_without_2023_25,"Cold E (E<=-1, C>-1)",NORTE,34,16.8,0.3611,
+detrended_without_2023_25,"Cold E (E<=-1, C>-1)",SUR,34,7.7,0.7708,
+detrended_without_2023_25,"Cold E (E<=-1, C>-1)",N-S,34,9.0,0.6597,

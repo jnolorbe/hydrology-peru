@@ -13,3 +13,13 @@ clones/pulls this repository and resolves all data paths automatically).
 
 Run them in order the first time (01 → 04); 02-04 each depend on outputs staged by the previous
 notebook(s) in `data/`.
+
+## Additions for thesis v13 (robustness and significance)
+- 05_tlcc_significance.py: TLCC significance (effective d.o.f., phase-randomized surrogates, BH-FDR).
+- 06_composite_significance.py: circular-shift permutation for the regime composites (3 regimes).
+- 07_composite_sensitivity.py: GRACE composites for 4 regimes (adds cold E), detrended and without the 2023-25 episode; BH-FDR over 56 tests.
+- 08_insitu_composite_significance.py: in-situ composites (1950-), group tests and south reversal; DET=1 detrends each record.
+- 09_event_analysis.py: event-based analysis (El Niño 2009-10, La Niña 2010-12, El Niño 2015-16, coastal El Niño 2017 and 2023-24; windows from ONI/ICEN): storage change per domain (cm, Gt) and its percentile among same-length windows. Outputs: data/processed_derived/event_change.csv, event_windows.csv.
+- robustness_checks/: exploratory lag/prewhitening/sample-dependence scripts (edit BASE before running).
+Derived tables: data/processed_derived/ (composite_sensitivity.csv, composite_regime_inventory.csv, insitu_composite_*.csv, insitu_records_coverage.csv).
+Note: in-situ domain values from script 08 can differ slightly from notebook 04 (e.g. Jequetepeque-Zarumilla, El Nino E: +133 vs +116).

@@ -1,0 +1,4 @@
+regime,north_minus_south_pct_sigma,north_mean,south_mean,null_sd,p_perm_two_sided,p_perm_one_sided_positive
+El Nino E,107.3,87.7,-19.6,49.2,0.02431,0.01389
+El Nino C,-18.3,14.1,32.4,28.1,0.5556,0.7257
+La Nina C,16.4,-6,-22.4,53.6,0.7465,0.375

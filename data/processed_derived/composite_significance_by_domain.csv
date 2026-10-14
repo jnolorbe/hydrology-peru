@@ -1,0 +1,43 @@
+regime,domain,composite_pct_sigma,n_regime_months,n_regime_events,null_sd,p_perm,q_fdr,signif_05,signif_fdr10
+El Nino E,JEQUETEPEQUE-ZARUMILLA,118.6,13,5,39,0.003472,0.1458,True,False
+El Nino E,HUARMEY-CHICAMA,56.8,13,5,35,0.1076,1,False,False
+El Nino E,MARAÑÓN,69.3,13,5,30.7,0.01389,0.2917,True,False
+El Nino E,HUALLAGA,41.9,13,5,33.5,0.2326,1,False,False
+El Nino E,AMAZONAS,25.6,13,5,33.4,0.4757,1,False,False
+El Nino E,CAÑETE-FORTALEZA,8.7,13,5,28.9,0.7708,1,False,False
+El Nino E,MANTARO,-0.9,13,5,37.8,0.9688,1,False,False
+El Nino E,CHÁPARRA-CHINCHA,-7.7,13,5,36.8,0.8472,1,False,False
+El Nino E,UCAYALI,0.1,13,5,34,1,1,False,False
+El Nino E,PAMPAS-APURIMAC,-31.8,13,5,45.3,0.5069,1,False,False
+El Nino E,URUBAMBA-VILCANOTA,-17.3,13,5,38.5,0.7257,1,False,False
+El Nino E,MADRE DE DIOS,0.2,13,5,38.3,0.9965,1,False,False
+El Nino E,CAPLINA-OCOÑA,-9.5,13,5,32.9,0.7743,1,False,False
+El Nino E,TITICACA,-19.9,13,5,41.7,0.6771,1,False,False
+El Nino C,JEQUETEPEQUE-ZARUMILLA,4.2,73,15,26.4,0.8993,1,False,False
+El Nino C,HUARMEY-CHICAMA,24,73,15,30.1,0.4792,1,False,False
+El Nino C,MARAÑÓN,21.3,73,15,27.4,0.5139,1,False,False
+El Nino C,HUALLAGA,33.2,73,15,31,0.3924,1,False,False
+El Nino C,AMAZONAS,4.3,73,15,28.3,0.9306,1,False,False
+El Nino C,CAÑETE-FORTALEZA,16.3,73,15,25.3,0.6424,1,False,False
+El Nino C,MANTARO,18.4,73,15,31,0.6667,1,False,False
+El Nino C,CHÁPARRA-CHINCHA,18.1,73,15,28.4,0.5938,1,False,False
+El Nino C,UCAYALI,37.5,73,15,31.8,0.3264,1,False,False
+El Nino C,PAMPAS-APURIMAC,29.4,73,15,32.8,0.4167,1,False,False
+El Nino C,URUBAMBA-VILCANOTA,41.9,73,15,33.1,0.2604,1,False,False
+El Nino C,MADRE DE DIOS,39.7,73,15,32.3,0.2465,1,False,False
+El Nino C,CAPLINA-OCOÑA,20.3,73,15,25.7,0.4931,1,False,False
+El Nino C,TITICACA,38.1,73,15,31.7,0.2743,1,False,False
+La Nina C,JEQUETEPEQUE-ZARUMILLA,-14.5,50,8,48.8,0.7535,1,False,False
+La Nina C,HUARMEY-CHICAMA,2.4,50,8,45.6,0.9514,1,False,False
+La Nina C,MARAÑÓN,-7.5,50,8,41.1,0.9236,1,False,False
+La Nina C,HUALLAGA,0.9,50,8,46.3,0.9965,1,False,False
+La Nina C,AMAZONAS,-39.7,50,8,44.1,0.4306,1,False,False
+La Nina C,CAÑETE-FORTALEZA,-5.1,50,8,40.7,0.9236,1,False,False
+La Nina C,MANTARO,-7.7,50,8,51.2,0.8993,1,False,False
+La Nina C,CHÁPARRA-CHINCHA,-23.6,50,8,47.3,0.6424,1,False,False
+La Nina C,UCAYALI,8,50,8,48.1,0.934,1,False,False
+La Nina C,PAMPAS-APURIMAC,-28.6,50,8,53.7,0.6111,1,False,False
+La Nina C,URUBAMBA-VILCANOTA,-12.2,50,8,52.3,0.8924,1,False,False
+La Nina C,MADRE DE DIOS,-16.3,50,8,52.4,0.8056,1,False,False
+La Nina C,CAPLINA-OCOÑA,-24.6,50,8,40.5,0.5938,1,False,False
+La Nina C,TITICACA,-24.2,50,8,53,0.6597,1,False,False
