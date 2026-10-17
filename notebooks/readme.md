@@ -18,7 +18,7 @@ notebook(s) in `data/`.
 - 05_tlcc_significance.py: TLCC significance (effective d.o.f., phase-randomized surrogates, BH-FDR).
 - 06_composite_significance.py: circular-shift permutation for the regime composites (3 regimes).
 - 07_composite_sensitivity.py: GRACE composites for 4 regimes (adds cold E), detrended and without the 2023-25 episode; BH-FDR over 56 tests.
-- 08_insitu_composite_significance.py: in-situ composites (1950-), group tests and south reversal; DET=1 detrends each record.
+- 08_insitu_composite_significance.py: in-situ composites (1950-), group tests and south reversal, and the same group tests split by variable type (hydrometric caudal_volumen vs pluviometric precipitacion; insitu_composite_groups_by_variable.csv); DET=1 detrends each record.
 - 09_event_analysis.py: event-based analysis (El Niño 2009-10, La Niña 2010-12, El Niño 2015-16, coastal El Niño 2017 and 2023-24; windows from ONI/ICEN): storage change per domain (cm, Gt) and its percentile among same-length windows. Outputs: data/processed_derived/event_change.csv, event_windows.csv.
 - robustness_checks/: exploratory lag/prewhitening/sample-dependence scripts (edit BASE before running).
 Derived tables: data/processed_derived/ (composite_sensitivity.csv, composite_regime_inventory.csv, insitu_composite_*.csv, insitu_records_coverage.csv).

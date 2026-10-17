@@ -1,4 +1,4 @@
-"""In-situ (1950-) ENSO-regime composites (E, C, La Nina C, cold E), % of local sigma of neutral months, per file then per AAA domain; circular-shift permutation of the monthly regime labels (shifts 12..T-12); BH-FDR over domain x regime; group tests NORTH, SOUTH, N-S and the south C-minus-E reversal. Env DET=1 linearly detrends each record. Usage: python 08_insitu_composite_significance.py <repo_root> <out_dir>"""
+"""In-situ (1950-) ENSO-regime composites (E, C, La Nina C, cold E), % of local sigma of neutral months, per file then per AAA domain; circular-shift permutation of the monthly regime labels (shifts 12..T-12); BH-FDR over domain x regime; group tests NORTH, SOUTH, N-S and the south C-minus-E reversal. Env DET=1 linearly detrends each record. Final section: the same group tests split by variable type (hydrometric caudal_volumen vs pluviometric precipitacion; column variable of insitu_index.csv) -> insitu_composite_groups_by_variable[_detrended].csv. Usage: python 08_insitu_composite_significance.py <repo_root> <out_dir>"""
 import os, re, sys, numpy as np, pandas as pd, warnings
 warnings.filterwarnings('ignore')
 BASE=sys.argv[1]; OUTD=sys.argv[2]; INS=os.path.join(BASE,'data/insitu')
@@ -108,3 +108,32 @@ for k,name in [(1,'E'),(2,'C'),(3,'LaNinaC'),(4,'Efrio')]:
 
 G=pd.DataFrame(GROWS); G['south_reversal_C_minus_E']=round(oR,1); G['p_south_reversal']=round((1+np.sum(np.abs(dR)>=abs(oR)))/(len(dR)+1),4)
 G.to_csv(os.path.join(OUTD,'insitu_composite_groups'+SUF+'.csv'),index=False)
+
+# ---- group tests split by variable type (hydrometric vs pluviometric) ----
+# Same per-file composites, domain means, circular-shift null and group statistics as above,
+# restricted to the records of one variable type; 'todas' reproduces the group results above.
+VARMAP=dict(zip(idx.archivo,idx.variable))
+def domain_stats_sub(sub,lab_vec):
+    res={}
+    for r in sub:
+        c=comp(r,lab_vec); res.setdefault(r['dom'],[]).append([c[1],c[2],c[3],c[4]])
+    return {d:np.nanmean(np.array(v),axis=0) for d,v in res.items()}
+def group_sub(d,names,k):
+    x=[d[n][k] for n in names if n in d]; return np.nanmean(x) if x else np.nan
+def pval(null,o):
+    x=null[~np.isnan(null)]; return (1+np.sum(np.abs(x)>=abs(o)))/(len(x)+1) if not np.isnan(o) else np.nan
+VROWS=[]
+for var in ['todas','caudal_volumen','precipitacion']:
+    sub=recs if var=='todas' else [r for r in recs if VARMAP.get(r['f'])==var]
+    ob=domain_stats_sub(sub,lab); vS=[]; vN=[]
+    for sft in shifts:
+        st=domain_stats_sub(sub,np.roll(lab,sft))
+        vS.append([group_sub(st,SOUTH,k) for k in range(4)]); vN.append([group_sub(st,NORTH,k) for k in range(4)])
+    vS=np.array(vS); vN=np.array(vN)
+    for k,name in enumerate(['El Nino E','El Nino C','La Nina C','E frio']):
+        oN,oS=group_sub(ob,NORTH,k),group_sub(ob,SOUTH,k)
+        VROWS.append(dict(variable=var,regime=name,n_files_north=sum(r['dom'] in NORTH for r in sub),n_files_south=sum(r['dom'] in SOUTH for r in sub),
+            north_mean=round(oN,1),p_north=round(pval(vN[:,k],oN),4),south_mean=round(oS,1),p_south=round(pval(vS[:,k],oS),4),
+            north_minus_south=round(oN-oS,1),p_contrast=round(pval(vN[:,k]-vS[:,k],oN-oS),4)))
+V=pd.DataFrame(VROWS); V.to_csv(os.path.join(OUTD,'insitu_composite_groups_by_variable'+SUF+'.csv'),index=False)
+print('\n-- group tests by variable type --'); print(V.to_string(index=False))
