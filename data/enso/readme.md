@@ -11,9 +11,16 @@ Monthly indices used to classify ENSO phases. All files share the same layout: a
 | `icen_2002_2025.csv` | 2002 → 2025 | ENFEN Índice Costero El Niño (ICEN) | Notebook 02 |
 | `ninodata_1982_2025.csv` | 1982 → 2025 | Niño 1+2, 3, 4 and 3.4 SST and anomalies | Notebook 02 |
 
-**E and C indices.** E describes Eastern Pacific / coastal El Niño (Niño 1+2 warming); C describes
-Central Pacific El Niño (Modoki). Positive C is the Central Pacific El Niño; only its negative
-extreme corresponds to the Central Pacific La Niña (Takahashi et al., 2011; Cai et al., 2020).
+**E and C indices.** Uncorrelated indices obtained by rotating by 45° the first two principal
+components of equatorial Pacific SST anomalies (Takahashi et al., 2011): E = (PC1 − PC2)/√2,
+C = (PC1 + PC2)/√2. E describes the **extreme warm events of the Eastern Pacific** (R = 0.94 with
+Niño 1+2); C describes the **cold and moderate warm events of the Central Pacific** (R = 0.98 with
+Niño 4). Takahashi et al. (2011) show that the two EOF modes are not distinct phenomena (canonical
+vs. "Modoki" El Niño) but the nonlinear evolution of ENSO. Regime names used in the thesis:
+**El Niño E (Eastern Pacific)**, **El Niño C (Central Pacific)**, **La Niña C** and the **cold
+phase of E**. *Coastal El Niño* is reserved for events defined by the ENFEN ICEN (e.g. 2017,
+2023–24); the E regime is not equivalent to it. The IGP series are computed from ERSSTv5
+(Huang et al., 2017) and ERSSTv6.
 
 Reference: Takahashi, K., Montecinos, A., Goubanova, K., & Dewitte, B. (2011). ENSO regimes:
 Reinterpreting the canonical and Modoki El Niño. *Geophysical Research Letters*, 38, L10704.

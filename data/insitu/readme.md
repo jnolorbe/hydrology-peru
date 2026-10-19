@@ -5,7 +5,7 @@ no publicada en este repositorio) efectivamente usado en el notebook `04_insitu_
 para validar dos hallazgos obtenidos con GRACE/GRACE-FO (notebooks 02 y 03):
 
 1. La consistencia de la estacionalidad anual del TWS con la climatología in situ de caudal/volumen y precipitación.
-2. El dipolo espacial norte-sur de la respuesta del TWS a El Niño costero (tipo E).
+2. El dipolo espacial norte-sur de la respuesta del TWS a El Niño E (Pacífico oriental).
 
 ## Contenido
 
