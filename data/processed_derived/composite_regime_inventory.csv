@@ -1,6 +1,7 @@
 regime,months,episodes,months_in_GRACE_gap,months_from_2022_10
 El Nino E,13,5,0,7
 El Nino C,73,15,0,4
-La Nina C,50,8,0,4
-"Cold E (E<=-1, C>-1)",35,16,6,1
+La Nina C,47,9,0,4
+"Cold E (E<=-1, C>-1)",29,12,6,0
 Neutral,50,23,2,9
+"Neutral (strict: ONI, ICEN)",34,18,2,8

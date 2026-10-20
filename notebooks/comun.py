@@ -12,12 +12,17 @@ Los cuadernos importan este módulo con
     import sys; sys.path.insert(0, os.path.join(REPO_NAME, 'notebooks'))
     from comun import *
 
-Paso 1 de la reestructuración (2026-10): las funciones reproducen exactamente
-los resultados de los scripts 05 a 09 originales, incluidas sus pequeñas
-diferencias de implementación, que se indican con parámetros explícitos
-(p. ej. `seleccion` en `series_por_ambito`, `min_periods` en `suavizar`,
-`prioridad` en `mascaras_regimenes`). Su unificación es un cambio de método
-y se hace en un paso posterior.
+Método (tesis v13, decisiones de 2026-10-19):
+- Los compuestos por régimen se calculan sobre la anomalía DESESTACIONALIZADA
+  (se resta la climatología mensual) y se expresan en % de su desviación estándar
+  (sigma interanual), tanto con GRACE como con los registros in situ.
+- Los regímenes son excluyentes: El Niño E prevalece sobre La Niña C y El Niño C
+  sobre la fase fría de E (`etiquetas_regimen`).
+- La versión sin desestacionalizar (método anterior) se conserva como sensibilidad
+  (`desestacionalizar=False`).
+Los parámetros `seleccion` (series_por_ambito) y `min_periods` (suavizar) conservan
+las variantes de implementación de los scripts originales; las tres selecciones de
+celdas son equivalentes.
 """
 import os
 import warnings
@@ -92,6 +97,22 @@ def cargar_grace(repo):
 def porcentaje_sigma_local(x):
     """Anomalía como % de la desviación estándar temporal de cada celda (ddof = 0)."""
     return ((x / x.std('time')) * 100).rio.write_crs('EPSG:4326')
+
+
+def quitar_climatologia(x):
+    """Anomalía respecto de la climatología mensual: a cada mes se le resta la media de
+    ese mes del calendario en todo el registro (por celda)."""
+    a = x.groupby('time.month') - x.groupby('time.month').mean('time')
+    return a.drop_vars('month', errors='ignore').rio.write_crs('EPSG:4326')
+
+
+def campo_relativo(repo, desestacionalizar=True):
+    """Campo de los compuestos: anomalía de TWS (desestacionalizada por defecto) como % de su
+    desviación estándar temporal en cada celda (sigma interanual si está desestacionalizada)."""
+    x = cargar_grace(repo)
+    if desestacionalizar:
+        x = quitar_climatologia(x)
+    return porcentaje_sigma_local(x)
 
 
 def cargar_ambitos(repo):
@@ -232,6 +253,13 @@ def ec_desestacionalizados(repo):
 # =============================================================================
 def mascara_neutro(E, C):
     return (np.abs(E) < UMBRAL_NEUTRO) & (np.abs(C) < UMBRAL_NEUTRO)
+
+
+def mascara_neutro_estricto(E, C, oni, icen):
+    """Neutro estricto (sensibilidad): neutro E/C y además |ONI| < 0.5 y -0.7 < ICEN < +0.4,
+    para excluir del comparador los calentamientos y enfriamientos costeros o de cuenca."""
+    oni = np.asarray(oni); icen = np.asarray(icen)
+    return mascara_neutro(E, C) & (np.abs(oni) < 0.5) & (icen < 0.4) & (icen > -0.7)
 
 
 def mascaras_regimenes(E, C, prioridad=False):
@@ -401,20 +429,30 @@ def significancia_tlcc(repo, nsur=N_SUSTITUTAS, quitar_tendencia=False, semilla=
     return res, pd.concat(curvas, axis=1).T
 
 
-def _compuestos_grace(repo):
+def _compuestos_grace(repo, desestacionalizar=True, version='v5'):
     """Matriz (meses x 14 ámbitos) de la anomalía en % de sigma local promediada por ámbito
-    (como los scripts 06 y 07) y los índices E y C alineados."""
-    Zd = series_por_ambito(porcentaje_sigma_local(cargar_grace(repo)), repo, 'nombre')
-    ec = cargar_ec(repo, 'v5')
+    y los índices E y C alineados (ERSSTv5 por defecto; 'v6' para la sensibilidad)."""
+    Zd = series_por_ambito(campo_relativo(repo, desestacionalizar), repo, 'nombre')
+    ec = cargar_ec(repo, version)
+    ec.columns = [c.lower() for c in ec.columns]
     ci = ec.index.intersection(Zd.index)
-    return Zd.loc[ci], ec.loc[ci, 'E_index'].values, ec.loc[ci, 'C_index'].values
+    return Zd.loc[ci], ec.loc[ci, 'e_index'].values, ec.loc[ci, 'c_index'].values
 
 
-def significancia_compuestos(repo, regimenes=('El Nino E', 'El Nino C', 'La Nina C'), prioridad=False):
+def compuestos_grace_por_ambito(repo, desestacionalizar=True, prioridad=True, version='v5'):
+    """Compuesto (% de sigma) por ámbito y régimen, sin prueba (tablas y figuras)."""
+    Zd, E, C = _compuestos_grace(repo, desestacionalizar, version)
+    neutral = mascara_neutro(E, C)
+    masks = mascaras_regimenes(E, C, prioridad)
+    return pd.DataFrame({r: pd.Series(diferencia_regimen(Zd.values, m, neutral), index=Zd.columns)
+                         for r, m in masks.items()})
+
+
+def significancia_compuestos(repo, regimenes=tuple(REGIMENES), prioridad=True, desestacionalizar=True):
     """Antes script 06. Compuesto por ámbito y régimen, prueba por desplazamiento circular
-    (todos los desplazamientos no nulos) y FDR sobre ámbitos x regímenes. Incluye el contraste
-    norte menos sur. Devuelve (tabla por ámbito, tabla del contraste)."""
-    Zd, E, C = _compuestos_grace(repo)
+    (todos los desplazamientos no nulos) y FDR sobre ámbitos x regímenes (14 x 4 = 56).
+    Incluye el contraste norte menos sur. Devuelve (tabla por ámbito, tabla del contraste)."""
+    Zd, E, C = _compuestos_grace(repo, desestacionalizar)
     masks = {k: v for k, v in mascaras_regimenes(E, C, prioridad).items() if k in regimenes}
     neutral = mascara_neutro(E, C)
     Zv = Zd.values; n = len(Zd)
@@ -444,11 +482,16 @@ def significancia_compuestos(repo, regimenes=('El Nino E', 'El Nino C', 'La Nina
     return res, pd.DataFrame(crow)
 
 
-def sensibilidad_compuestos(repo, prioridad=False):
-    """Antes script 07. Cuatro regímenes; variantes base, sin tendencia lineal, sin el episodio
-    2023-25 (meses de régimen desde oct-2022 retirados; neutros conservados) y ambas; ámbitos,
-    NORTE, SUR y N-S; FDR sobre 56 contrastes por variante. Devuelve (tabla, inventario)."""
-    Zd, E, C = _compuestos_grace(repo)
+def sensibilidad_compuestos(repo, prioridad=True):
+    """Antes script 07. Cuatro regímenes; variantes: base (desestacionalizada), sin tendencia
+    lineal, sin el episodio 2023-25 (meses de régimen desde oct-2022 retirados; neutros
+    conservados), ambas, y sin desestacionalizar (método anterior); ámbitos, NORTE, SUR y N-S;
+    FDR sobre 56 contrastes por variante; además, neutro estricto (ONI e ICEN también neutros).
+    Devuelve (tabla, inventario)."""
+    Zd, E, C = _compuestos_grace(repo, True)
+    Zraw = _compuestos_grace(repo, False)[0]
+    oni = cargar_oni(repo)['oni'].reindex(Zd.index).values
+    icen = cargar_icen(repo)['icen'].reindex(Zd.index).values
     idx = Zd.index
     neutral = mascara_neutro(E, C)
     masks = mascaras_regimenes(E, C, prioridad)
@@ -459,6 +502,10 @@ def sensibilidad_compuestos(repo, prioridad=False):
     info.loc[len(info)] = dict(regime='Neutral', months=int(neutral.sum()), episodes=contar_episodios(neutral),
                                months_in_GRACE_gap=int((neutral & gap).sum()),
                                months_from_2022_10=int((neutral & late).sum()))
+    estricto = mascara_neutro_estricto(E, C, oni, icen)
+    info.loc[len(info)] = dict(regime='Neutral (strict: ONI, ICEN)', months=int(estricto.sum()),
+                               episodes=contar_episodios(estricto), months_in_GRACE_gap=int((estricto & gap).sum()),
+                               months_from_2022_10=int((estricto & late).sum()))
     iN = [AMBITOS.index(d) for d in NORTE]; iS = [AMBITOS.index(d) for d in SUR]
     names = AMBITOS + ['NORTE', 'SUR', 'N-S']
 
@@ -466,16 +513,17 @@ def sensibilidad_compuestos(repo, prioridad=False):
         G = np.column_stack([Zv[:, iN].mean(1), Zv[:, iS].mean(1)])
         return np.column_stack([Zv, G, G[:, 0] - G[:, 1]])
     V = Zd.values; Vd = quitar_tendencia_columnas(V)
-    variants = {'base': (V, False), 'detrended': (Vd, False), 'without_2023_25': (V, True),
-                'detrended_without_2023_25': (Vd, True)}
+    variants = {'base': (V, False, neutral), 'detrended': (Vd, False, neutral), 'without_2023_25': (V, True, neutral),
+                'detrended_without_2023_25': (Vd, True, neutral), 'strict_neutral': (V, False, estricto),
+                'not_deseasonalized': (Zraw.values, False, neutral)}
     rows = []
-    for vn, (Zv, drop) in variants.items():
+    for vn, (Zv, drop, mneu) in variants.items():
         Y = ampliar(Zv)
         for rn, mr in masks.items():
             m2 = mr & ~late if drop else mr
             if m2.sum() < 3:
                 continue
-            o, _, p = p_desplazamiento_circular(Y, m2, neutral)
+            o, _, p = p_desplazamiento_circular(Y, m2, mneu)
             rows += [dict(variant=vn, regime=rn, unit=nm, n_regime_months=int(m2.sum()),
                           composite_pct_sigma=round(float(a), 1), p_perm=round(float(b), 4))
                      for nm, a, b in zip(names, o, p)]
@@ -526,9 +574,10 @@ def indice_insitu(repo):
     return idx[~idx.archivo.isin(EXCLUIDOS_INSITU)]
 
 
-def cargar_registros_insitu(repo, tindex, quitar_tendencia=False, corte=None):
+def cargar_registros_insitu(repo, tindex, quitar_tendencia=False, corte=None, desestacionalizar=True):
     """Registros con fechas reales ubicados en el calendario de etiquetas `tindex` (desde 1950).
-    Cada registro: dict(f, dom, pos, val). quitar_tendencia: tendencia lineal por registro."""
+    Cada registro: dict(f, dom, pos, val). quitar_tendencia: tendencia lineal por registro;
+    desestacionalizar: se resta a cada registro su climatología mensual (meses desde 1950)."""
     ins = ruta(repo, 'data/insitu')
     idx = indice_insitu(repo)
     files = sorted(f for f in os.listdir(ins) if f.endswith('.csv') and f != 'insitu_index.csv'
@@ -548,7 +597,11 @@ def cargar_registros_insitu(repo, tindex, quitar_tendencia=False, corte=None):
             t = pos[ok].astype(float); vv = s.values[ok].astype(float)
             s = pd.Series(vv - np.polyval(np.polyfit(t, vv, 1), t) + vv.mean(), index=s.index[ok])
             pos = tindex.get_indexer(s.index); ok = pos >= 0
-        recs.append(dict(f=f, dom=dom, pos=pos[ok], val=s.values[ok]))
+        val = s.values[ok].astype(float)
+        if desestacionalizar:
+            ser = pd.Series(val, index=s.index[ok])
+            val = (ser - ser.groupby(ser.index.month).transform('mean')).values
+        recs.append(dict(f=f, dom=dom, pos=pos[ok], val=val))
     return recs
 
 
@@ -563,6 +616,19 @@ def compuesto_registro(rec, lab):
     for k in (1, 2, 3, 4):
         x = v[L == k]; out[k] = (x.mean() - mu) / sd * 100 if len(x) >= 3 else np.nan
     return out
+
+
+def compuestos_por_registro(repo, desestacionalizar=True, quitar_tendencia=False):
+    """Compuesto de cada registro in situ con fechas reales (% de sigma neutra), por régimen."""
+    v6 = cargar_ec(repo, 'v6')
+    lab = etiquetas_regimen(v6['e_index'].values, v6['c_index'].values)
+    recs = cargar_registros_insitu(repo, v6.index, quitar_tendencia, desestacionalizar=desestacionalizar)
+    filas = []
+    for r in recs:
+        c = compuesto_registro(r, lab)
+        filas.append(dict(archivo=r['f'], dominio_AAA=r['dom'], nino_e_pct=c[1], nino_c_pct=c[2],
+                          nina_c_pct=c[3], e_frio_pct=c[4]))
+    return pd.DataFrame(filas)
 
 
 def medias_por_ambito(recs, lab):
@@ -585,7 +651,7 @@ def _p_nula(nula, o):
 NOMBRES_INSITU = ['El Nino E', 'El Nino C', 'La Nina C', 'E frio']
 
 
-def compuestos_insitu(repo, quitar_tendencia=False):
+def compuestos_insitu(repo, quitar_tendencia=False, desestacionalizar=True):
     """Antes script 08. Compuestos in situ (1950-) por registro, ámbito y grupo; nula por
     desplazamiento circular del calendario de etiquetas (12 a T-12 meses); FDR sobre
     ámbitos x regímenes; contraste norte-sur, inversión C-E del sur y grupos por variable.
@@ -593,7 +659,7 @@ def compuestos_insitu(repo, quitar_tendencia=False):
     v6 = cargar_ec(repo, 'v6')
     lab = etiquetas_regimen(v6['e_index'].values, v6['c_index'].values)
     T = len(lab); tindex = v6.index
-    recs = cargar_registros_insitu(repo, tindex, quitar_tendencia)
+    recs = cargar_registros_insitu(repo, tindex, quitar_tendencia, desestacionalizar=desestacionalizar)
     idx = indice_insitu(repo)
     obs = medias_por_ambito(recs, lab); doms = sorted(obs)
     shifts = range(12, T - 12)
@@ -672,11 +738,7 @@ def analisis_eventos(repo):
     percentil entre ventanas de igual duración (descriptivo); variante sin tendencia;
     sensibilidad con ventanas definidas con E y C.
     Devuelve dict: cambios, ventanas, sensibilidad, serie (D)."""
-    tws = cargar_grace(repo)
-    raw = series_por_ambito(tws, repo, 'puntos')
-    sm = suavizar(raw, min_periods=None).dropna()
-    D = pd.DataFrame({d: (lambda r: r.trend + r.resid)(seasonal_decompose(sm[d], model='additive', period=12,
-                                                                             extrapolate_trend='freq')) for d in AMBITOS})
+    D = series_tws_cuaderno02(repo)[2][AMBITOS]   # la misma serie desestacionalizada del cuaderno 02
     x = np.arange(len(D))
     Dd = D.apply(lambda c: c - np.polyval(np.polyfit(x, c.values, 1), x))
     area = area_ambitos_km2(repo)
@@ -743,7 +805,7 @@ def verificar(repo):
     assert gdf['NAME_AAA'].nunique() == 14, 'se esperaban 14 ámbitos'
     ec = cargar_ec(repo, 'v5').reindex(pd.to_datetime(x.time.values))
     E, C = ec['E_index'].values, ec['C_index'].values
-    mE = mascaras_regimenes(E, C)['El Nino E']
+    mE = mascaras_regimenes(E, C, prioridad=True)['El Nino E']
     assert int(mE.sum()) == 13 and contar_episodios(mE) == 5, 'El Niño E: se esperaban 13 meses en 5 episodios'
     idx = indice_insitu(repo)
     assert len(idx) == 69, 'se esperaban 69 registros in situ'
