@@ -7,8 +7,8 @@ impact of ENSO (El Niño-Southern Oscillation) on Terrestrial Water Storage (TWS
 
 ## Contents
 
-- **`notebooks/`** — Sequential, Colab-ready analysis pipeline (01-04). See
-  `notebooks/readme.md` for a description of each notebook.
+- **`notebooks/`** — Sequential, Colab-ready analysis pipeline (01-05) and the shared
+  function module `notebooks/comun.py`. See `notebooks/readme.md` for a description of each notebook.
 - **`data/raw/`** — Raw GRACE/GRACE-FO JPL RL06.3 mascon NetCDF (2002-2025).
 - **`data/processed/`** — IQR-filtered, gap-filled GRACE TWS product used by all downstream
   notebooks.
@@ -35,5 +35,5 @@ conda activate hydrology-peru
 
 (a `requirements.txt` is also provided for a plain `pip install -r requirements.txt` setup).
 
-Run the notebooks in order (01 → 04); each of 02-04 depends on outputs produced by the
+Run the notebooks in order (01 → 05); each of 02-05 depends on outputs produced by the
 previous notebook(s).
