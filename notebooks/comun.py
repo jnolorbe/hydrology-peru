@@ -810,3 +810,47 @@ def verificar(repo):
     idx = indice_insitu(repo)
     assert len(idx) == 69, 'se esperaban 69 registros in situ'
     print('Verificación correcta: 288 meses, 14 ámbitos, El Niño E 13 meses en 5 episodios, 69 registros in situ.')
+
+# =============================================================================
+# 9. Tendencia de largo plazo y coherencia entre ámbitos (descriptivo)
+# =============================================================================
+def tendencia_lineal(s):
+    """Pendiente lineal (cm/año) de una serie mensual, su error estándar y su valor p con
+    grados de libertad efectivos n (1 - r1) / (1 + r1), donde r1 es la autocorrelación de
+    rezago uno de los residuos. Devuelve (pendiente, error, p, n_ef)."""
+    y = np.asarray(s, dtype=float); t = np.arange(len(y)) / 12.0
+    b, a = np.polyfit(t, y, 1); r = y - (a + b * t)
+    r1 = np.corrcoef(r[:-1], r[1:])[0, 1]
+    neff = len(y) * (1 - r1) / (1 + r1)
+    se = np.sqrt(np.sum(r ** 2) / (neff - 2) / np.sum((t - t.mean()) ** 2))
+    p = 2 * stats.t.sf(abs(b / se), neff - 2)
+    return b, se, p, neff
+
+
+def tendencias_por_ambito(repo):
+    """Tendencia lineal 2002-2025 de la serie desestacionalizada de cada ámbito (cuaderno 02),
+    con su significancia, y pendientes en 2002-2016 y hasta septiembre de 2022 (sin 2023-25)."""
+    des = series_tws_cuaderno02(repo)[2][AMBITOS]
+    filas = []
+    for d in AMBITOS:
+        b, se, p, ne = tendencia_lineal(des[d])
+        filas.append(dict(ambito=d, pendiente_cm_anio=b, error_cm_anio=se, p=p, n_ef=ne,
+                          pendiente_2002_2016=tendencia_lineal(des[d].loc[:'2016-12'])[0],
+                          pendiente_hasta_2022_09=tendencia_lineal(des[d].loc[:'2022-09'])[0]))
+    return pd.DataFrame(filas)
+
+
+def correlacion_entre_ambitos(repo):
+    """Matrices de correlación entre las series desestacionalizadas de los 14 ámbitos, con y sin
+    tendencia lineal, y promedios norte-norte, sur-sur y norte-sur."""
+    des = series_tws_cuaderno02(repo)[2][AMBITOS]
+    sin = des.apply(lambda c: pd.Series(quitar_tendencia_lineal(c.values).values, index=des.index))
+    res = {}
+    for nombre, X in (('con_tendencia', des), ('sin_tendencia', sin)):
+        Cm = X.corr()
+        res[nombre] = Cm
+        res[nombre + '_resumen'] = dict(
+            norte_norte=Cm.loc[NORTE[0], NORTE[1]],
+            sur_sur=np.mean([Cm.loc[a, b] for i, a in enumerate(SUR) for b in SUR[i + 1:]]),
+            norte_sur=Cm.loc[NORTE, SUR].values.mean())
+    return res
