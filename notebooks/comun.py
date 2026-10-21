@@ -854,3 +854,46 @@ def correlacion_entre_ambitos(repo):
             sur_sur=np.mean([Cm.loc[a, b] for i, a in enumerate(SUR) for b in SUR[i + 1:]]),
             norte_sur=Cm.loc[NORTE, SUR].values.mean())
     return res
+
+# =============================================================================
+# 10. Distribución de los índices E y C y sensibilidad a los umbrales (descriptivo)
+# =============================================================================
+def distribucion_indices(repo):
+    """Asimetría, percentiles 5 y 95, extremos y número de meses más allá de +-1, +-2 y +-3
+    de los índices E y C (ERSSTv5 2002-2025 y ERSSTv6 desde 1950)."""
+    from scipy.stats import skew
+    v5 = cargar_ec(repo, 'v5').loc['2002':'2025']
+    v6 = cargar_ec(repo, 'v6')
+    filas = []
+    for serie, nombre in ((v5['E_index'], 'E'), (v5['C_index'], 'C'), (v6['e_index'], 'E'), (v6['c_index'], 'C')):
+        x = serie.dropna()
+        fila = dict(indice=nombre, periodo='2002-2025 (ERSSTv5)' if len(x) < 400 else '1950- (ERSSTv6)',
+                    meses=len(x), asimetria=skew(x), p05=x.quantile(0.05), p95=x.quantile(0.95), minimo=x.min(), maximo=x.max())
+        for u in (1, 2, 3):
+            fila[f'meses_>=+{u}'] = int((x >= u).sum()); fila[f'meses_<=-{u}'] = int((x <= -u).sum())
+        filas.append(fila)
+    return pd.DataFrame(filas)
+
+
+def sensibilidad_umbrales(repo):
+    """Compuestos GRACE (anomalía desestacionalizada, % sigma interanual) de los grupos norte y
+    sur con distintos umbrales de cada régimen; el resto de las reglas y el neutro no cambian.
+    Prueba por desplazamiento circular. Es una comprobación de sensibilidad, no el procedimiento
+    con que se fijaron los umbrales."""
+    Zd, E, C = _compuestos_grace(repo, True)
+    neu = mascara_neutro(E, C)
+    iN = [AMBITOS.index(d) for d in NORTE]; iS = [AMBITOS.index(d) for d in SUR]
+    Y = np.column_stack([Zd.values[:, iN].mean(1), Zd.values[:, iS].mean(1)])
+    e_extremo = (E >= UMBRAL_E_NINO) & (C < UMBRAL_E_NINO)
+    c_calido = (C >= UMBRAL_C_NINO) & (E < UMBRAL_C_NINO)
+    casos = ([('El Nino E', u, (E >= u) & (C < UMBRAL_E_NINO)) for u in (0.5, 0.75, 1.0, 1.25, 1.5)] +
+             [('El Nino C', u, (C >= u) & (E < UMBRAL_C_NINO)) for u in (0.5, 0.75, 1.0)] +
+             [('La Nina C', u, (C <= u) & ~e_extremo) for u in (-0.5, -0.75, -1.0, -1.25)] +
+             [('Cold E (E<=-1, C>-1)', u, (E <= u) & (C > UMBRAL_E_FRIO) & ~c_calido) for u in (-0.5, -0.75, -1.0)])
+    filas = []
+    for reg, u, m in casos:
+        o, _, p = p_desplazamiento_circular(Y, m, neu)
+        filas.append(dict(regime=reg, umbral=u, meses=int(m.sum()), episodios=contar_episodios(m),
+                          norte=round(float(o[0]), 1), p_norte=round(float(p[0]), 4),
+                          sur=round(float(o[1]), 1), p_sur=round(float(p[1]), 4)))
+    return pd.DataFrame(filas)

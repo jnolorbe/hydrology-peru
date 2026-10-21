@@ -43,6 +43,7 @@ with a strict neutral baseline that also requires neutral ONI and ICEN (variant 
 |---|---|---|
 | — (new) linear trends and inter-domain correlation | Notebook 02, Section IX | `tws_trends_by_domain.csv` |
 | 05 TLCC significance | Notebook 02, Section VIII | `tlcc_significance_base*.csv`, `tlcc_significance_detrended*.csv` |
+| — (new) E/C index distribution and regime-threshold sensitivity | Notebook 03, Section VII | `regime_threshold_sensitivity.csv` |
 | 06 composite significance | Notebook 03, Section VI (6.1) | `composite_significance_by_domain.csv`, `composite_significance_dipole_contrast.csv` |
 | 07 composite sensitivity | Notebook 03, Section VI (6.2) | `composite_sensitivity.csv`, `composite_regime_inventory.csv` |
 | 08 in-situ composites | Notebook 04, Sections IV and VI | `insitu_composite_*.csv` |
