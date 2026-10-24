@@ -1,11 +1,11 @@
 # data/insitu — Subconjunto curado de datos in situ para el notebook 04
 
 Este directorio contiene el subconjunto de `INSITU_estandarizado` (carpeta de trabajo doctoral,
-no publicada en este repositorio) efectivamente usado en el notebook `04_insitu_validation_seasonality_and_enso_dipole.ipynb`
+no publicada en este repositorio) efectivamente usado en el notebook `04_insitu_validation_seasonality_and_enso_regimes.ipynb`
 para validar dos hallazgos obtenidos con GRACE/GRACE-FO (notebooks 02 y 03):
 
 1. La consistencia de la estacionalidad anual del TWS con la climatología in situ de caudal/volumen y precipitación.
-2. El dipolo espacial norte-sur de la respuesta del TWS a El Niño E (Pacífico oriental).
+2. El superávit del norte durante El Niño E (Pacífico oriental).
 
 ## Contenido
 
@@ -15,7 +15,7 @@ para validar dos hallazgos obtenidos con GRACE/GRACE-FO (notebooks 02 y 03):
   media de sus columnas, y los meses sin dato se omiten.
 - `insitu_index.csv`: índice con el dominio hidrográfico AAA asignado a cada dataset (y el método:
   coordenadas verificadas por point-in-polygon, o nombre de cuenca), el período real de registro,
-  y si el dataset se usó en la validación de estacionalidad y/o en la del dipolo ENSO.
+  y si el dataset se usó en la validación de estacionalidad y/o en la de los regímenes ENOS.
 
 ## Qué no está aquí
 

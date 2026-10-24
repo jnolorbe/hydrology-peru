@@ -1,4 +1,4 @@
-archivo,dominio_AAA,confianza_dominio,metodo_asignacion_dominio,variable,es_climatologia,periodo_inicio,periodo_fin,n_meses_datos,usado_fase2_estacionalidad,usado_fase3_enso_nino_costero
+archivo,dominio_AAA,confianza_dominio,metodo_asignacion_dominio,variable,es_climatologia,periodo_inicio,periodo_fin,n_meses_datos,usado_fase2_estacionalidad,usado_regimenes_enso
 acari_caudal_volumen.csv,CHÁPARRA-CHINCHA,media,nombre de cuenca (sin verificar coordenadas),caudal_volumen,False,1960-08,2005-07,540,True,True
 ancashcosta_caudal_climatologia_multicuenca.csv,HUARMEY-CHICAMA,media,nombre de cuenca (sin verificar coordenadas),caudal_volumen,True,,,0,True,False
 angostura_caudal_volumen.csv,PAMPAS-APURIMAC,alta,"coordenadas (verificado point-in-polygon, aportadas por el usuario)",caudal_volumen,False,1965-02,2010-02,362,True,True
