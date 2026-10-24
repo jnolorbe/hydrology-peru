@@ -1,13 +1,13 @@
 variable,regime,n_files_north,n_files_south,north_mean,p_north,south_mean,p_south,north_minus_south,p_contrast
-todas,El Nino E,20,23,137.3,0.0134,-10.2,0.5,147.6,0.0134
-todas,El Nino C,20,23,-33.2,0.1548,22.2,0.1459,-55.4,0.078
-todas,La Nina C,20,23,37.8,0.1292,14.2,0.3597,23.6,0.4521
-todas,E frio,20,23,0.9,0.9766,10.5,0.5056,-9.6,0.7606
-caudal_volumen,El Nino E,11,18,111.0,0.0156,-18.1,0.3742,129.1,0.0134
-caudal_volumen,El Nino C,11,18,-33.6,0.1514,14.0,0.402,-47.6,0.1281
-caudal_volumen,La Nina C,11,18,35.1,0.1425,8.6,0.6403,26.4,0.3987
-caudal_volumen,E frio,11,18,-0.2,0.9967,3.9,0.8207,-4.1,0.9131
-precipitacion,El Nino E,9,5,178.3,0.0134,1.9,0.8775,176.4,0.0134
-precipitacion,El Nino C,9,5,-33.4,0.186,16.2,0.1537,-49.6,0.1269
-precipitacion,La Nina C,9,5,40.7,0.1782,16.6,0.1459,24.1,0.4699
-precipitacion,E frio,9,5,3.7,0.8987,19.5,0.1258,-15.8,0.6058
+todas,El Nino E,19,21,133.5,0.0134,-10.6,0.4833,144.2,0.0134
+todas,El Nino C,19,21,-35.3,0.1303,22.7,0.1414,-58.0,0.0668
+todas,La Nina C,19,21,37.7,0.1281,13.4,0.3942,24.3,0.4388
+todas,E frio,19,21,-0.2,0.9955,10.4,0.5056,-10.5,0.7405
+caudal_volumen,El Nino E,11,16,119.0,0.0134,-18.9,0.3675,137.9,0.0111
+caudal_volumen,El Nino C,11,16,-34.6,0.1336,14.6,0.3875,-49.2,0.1214
+caudal_volumen,La Nina C,11,16,35.1,0.1437,7.3,0.7082,27.8,0.3831
+caudal_volumen,E frio,11,16,-1.3,0.9699,3.6,0.8541,-4.9,0.8998
+precipitacion,El Nino E,8,5,156.5,0.0145,1.9,0.8775,154.6,0.0134
+precipitacion,El Nino C,8,5,-36.3,0.1626,16.2,0.1537,-52.5,0.1002
+precipitacion,La Nina C,8,5,42.4,0.137,16.6,0.1459,25.8,0.412
+precipitacion,E frio,8,5,1.1,0.9733,19.5,0.1258,-18.4,0.5379

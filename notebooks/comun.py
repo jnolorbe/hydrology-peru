@@ -72,10 +72,6 @@ INICIO_EPISODIO_2023_25 = '2022-10-01'
 BRECHA_GRACE = ('2017-07-01', '2018-05-31')
 INICIO_INSITU = '1950-01-01'
 
-EXCLUIDOS_INSITU = {'chili_caudal_volumen.csv',            # años registrados como caudal
-                    'rimac_caudal_volumen.csv',             # sin ciclo anual ni autocorrelación
-                    'canete_precipitacion_climatologia.csv'}  # meses desfasados seis meses
-
 
 def ruta(repo, *partes):
     """Ruta dentro del repositorio."""
@@ -565,13 +561,13 @@ def leer_registro(fp):
     if not cols:
         return None
     df['_v'] = df[cols].mean(axis=1); df['_ym'] = df[dc].values.astype('datetime64[M]')
-    s = df.groupby('_ym')['_v'].mean(); s.index = pd.to_datetime(s.index)
+    s = df.groupby('_ym')['_v'].mean().dropna(); s.index = pd.to_datetime(s.index)   # sin meses vacíos
     return s
 
 
 def indice_insitu(repo):
     idx = pd.read_csv(ruta(repo, 'data/insitu/insitu_index.csv'))
-    return idx[~idx.archivo.isin(EXCLUIDOS_INSITU)]
+    return idx
 
 
 def cargar_registros_insitu(repo, tindex, quitar_tendencia=False, corte=None, desestacionalizar=True):
@@ -580,8 +576,7 @@ def cargar_registros_insitu(repo, tindex, quitar_tendencia=False, corte=None, de
     desestacionalizar: se resta a cada registro su climatología mensual (meses desde 1950)."""
     ins = ruta(repo, 'data/insitu')
     idx = indice_insitu(repo)
-    files = sorted(f for f in os.listdir(ins) if f.endswith('.csv') and f != 'insitu_index.csv'
-                   and f not in EXCLUIDOS_INSITU)
+    files = sorted(f for f in os.listdir(ins) if f.endswith('.csv') and f != 'insitu_index.csv')
     recs = []
     for f in files:
         s = leer_registro(os.path.join(ins, f))
@@ -607,8 +602,9 @@ def cargar_registros_insitu(repo, tindex, quitar_tendencia=False, corte=None, de
 
 def compuesto_registro(rec, lab):
     """(media del régimen - media neutra) / sigma neutra x 100 para un registro (ddof = 0);
-    requiere >= 6 meses neutros y >= 3 meses del régimen."""
-    L = lab[rec['pos']]; v = rec['val']; nv = v[L == 0]
+    requiere >= 6 meses neutros y >= 3 meses del régimen con dato (los meses vacíos se ignoran)."""
+    ok = ~np.isnan(rec['val'])
+    L = lab[rec['pos']][ok]; v = rec['val'][ok]; nv = v[L == 0]
     if len(nv) < 6 or nv.std() == 0:
         return {1: np.nan, 2: np.nan, 3: np.nan, 4: np.nan}
     mu, sd = nv.mean(), nv.std(ddof=0)
@@ -711,6 +707,40 @@ def compuestos_insitu(repo, quitar_tendencia=False, desestacionalizar=True):
                 n_registros=len(recs))
 
 
+def concordancia_signo(repo):
+    """Concordancia de signo entre los compuestos GRACE (ERSSTv5) y los in situ (ERSSTv6) por ámbito,
+    para El Niño E, El Niño C y La Niña C, en el caso base y en cuatro pruebas de sensibilidad:
+    registros sin desestacionalizar, registros desde 1960, registros sin tendencia lineal y
+    compuestos GRACE recalculados con ERSSTv6. Devuelve una tabla (prueba x régimen) 'k/n'."""
+    v6 = cargar_ec(repo, 'v6')
+    lab = etiquetas_regimen(v6['e_index'].values, v6['c_index'].values)
+    g5 = compuestos_grace_por_ambito(repo)
+    g6 = compuestos_grace_por_ambito(repo, version='v6')
+    regs = [('El Nino E', 0), ('El Nino C', 1), ('La Nina C', 2)]
+
+    def insitu(inicio=None, **kw):
+        recs = cargar_registros_insitu(repo, v6.index, **kw)
+        if inicio:
+            for r in recs:
+                m = v6.index[r['pos']] >= pd.Timestamp(inicio)
+                r['pos'], r['val'] = r['pos'][m], r['val'][m]
+        return medias_por_ambito(recs, lab)
+
+    def conc(ins, g):
+        fila = {}
+        for r, k in regs:
+            doms = [d for d in ins if not np.isnan(ins[d][k])]
+            fila[r] = f"{sum(np.sign(ins[d][k]) == np.sign(g.loc[d, r]) for d in doms)}/{len(doms)}"
+        return fila
+
+    base = insitu()
+    pruebas = {'base': conc(base, g5),
+               'sin desestacionalizar': conc(insitu(desestacionalizar=False), g5),
+               'desde 1960': conc(insitu(inicio='1960-01-01'), g5),
+               'sin tendencia': conc(insitu(quitar_tendencia=True), g5),
+               'GRACE con ERSSTv6': conc(base, g6)}
+    return pd.DataFrame(pruebas).T.rename_axis('prueba')
+
 # ---------------------------------------------------------------- eventos ----
 def _ventana(cond, cerca, maxgap=0):
     c = cond.copy()
@@ -808,8 +838,8 @@ def verificar(repo):
     mE = mascaras_regimenes(E, C, prioridad=True)['El Nino E']
     assert int(mE.sum()) == 13 and contar_episodios(mE) == 5, 'El Niño E: se esperaban 13 meses en 5 episodios'
     idx = indice_insitu(repo)
-    assert len(idx) == 69, 'se esperaban 69 registros in situ'
-    print('Verificación correcta: 288 meses, 14 ámbitos, El Niño E 13 meses en 5 episodios, 69 registros in situ.')
+    assert len(idx) == 64, 'se esperaban 64 registros in situ'
+    print('Verificación correcta: 288 meses, 14 ámbitos, El Niño E 13 meses en 5 episodios, 64 registros in situ.')
 
 # =============================================================================
 # 9. Tendencia de largo plazo y coherencia entre ámbitos (descriptivo)

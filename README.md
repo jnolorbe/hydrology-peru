@@ -19,7 +19,7 @@ impact of ENSO (El Niño-Southern Oscillation) on Terrestrial Water Storage (TWS
   Administrativa del Agua) hydrographic domain polygons used for spatial aggregation.
 - **`data/insitu/`** — Standardized in-situ streamflow (caudal) and precipitation records used
   in Notebook 04 to independently validate the GRACE-derived findings. See
-  `data/insitu/readme.md` for provenance, domain assignment, and exclusion criteria.
+  `data/insitu/readme.md` for provenance and domain assignment.
 
 ## Reproducing the analysis
 
