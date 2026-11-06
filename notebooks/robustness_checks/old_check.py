@@ -63,7 +63,7 @@ print("NATIONAL months:", len(nat), nat.index[0].date(), nat.index[-1].date())
 x = nat.values - nat.values.mean(); f = np.fft.rfftfreq(len(x), 1.0); P = np.abs(np.fft.rfft(x))**2
 top = np.argsort(P[1:])[::-1][:4]+1
 print("FFT top periods (months):", [round(1/f[i],1) for i in top], "share top:", round(P[top[0]]/P[1:].sum(),2))
-# national annual means and slopes in v12 periods (annual means, calendar years)
+# national annual means and slopes in the earlier-analysis periods (annual means, calendar years)
 ann = nat.groupby(nat.index.year).mean()
 def slope_ann(y0,y1):
     s = ann.loc[y0:y1]; r = np.corrcoef(s.index, s.values)[0,1]; m = np.polyfit(s.index, s.values,1)[0]; return round(m,2), round(r,3), len(s)
@@ -75,7 +75,7 @@ for y in range(2002,2022):
     s=ann.loc[y:y+4]; 
     if len(s)==5: wins.append((y, np.corrcoef(s.index,s.values)[0,1], np.polyfit(s.index,s.values,1)[0]))
 w=pd.DataFrame(wins,columns=['y0','r','m']); print("5-yr windows: share with |r|>0.9:", round((w.r.abs()>0.9).mean(),2), "| share r>0.9:", round((w.r>0.9).mean(),2), "| slopes range", w.m.min().round(2), w.m.max().round(2))
-# monthly national regression in the two v12 periods + effective n
+# monthly national regression in the two earlier-analysis periods + effective n
 def reg(s,a,b):
     z=s.loc[a:b].dropna(); t=np.arange(len(z)); m,c=np.polyfit(t,z.values,1); r=np.corrcoef(t,z.values)[0,1]
     res=z.values-(m*t+c); r1=np.corrcoef(res[1:],res[:-1])[0,1]; neff=len(z)*(1-r1)/(1+r1)
@@ -107,7 +107,7 @@ print("pairwise r, deseasonalised (trend+resid):     min/median/max", dd[iu].min
 sc = df_seas.groupby(df_seas.index.month).mean()
 print("peak month:", sc.idxmax().to_dict()); print("min month:", sc.idxmin().to_dict())
 print("first positive month (onset of charge):", {c: int(next(m for m in [12,1,2,3,4,5,6] if sc.loc[m,c]>0 and sc.loc[(m-2)%12+1 if m>1 else 12,c]<=0)) if True else None for c in sc.columns})
-# ---- v12 % variation baseline: Vi by phase ----
+# ---- earlier-analysis % variation baseline: Vi by phase ----
 base_years=[y for y in list(range(2002,2009))+[2012,2013,2014]]
 b = df[df.index.year.isin(base_years)]
 Vi_rech = b[b.index.month.isin(range(1,7))].mean(); Vi_disc = b[b.index.month.isin(range(7,13))].mean()

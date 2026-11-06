@@ -28,11 +28,11 @@ circular-shift permutation, Benjamini–Hochberg FDR), in-situ composites and ev
 `verificar()` checks the basic counts quoted in the thesis (288 months, 14 domains, 13 El Niño E
 months in 5 episodes, 64 in-situ records).
 
-## Significance, sensitivity and events (thesis v13)
+## Significance, sensitivity and events
 
 The former scripts 05–09 are now sections of the notebooks and call `comun.py`.
 
-**Method (thesis v13).** Regime composites are computed on the deseasonalized anomaly (monthly
+**Method.** Regime composites are computed on the deseasonalized anomaly (monthly
 climatology removed) and expressed in % of its standard deviation (interannual σ), for GRACE and
 for the in-situ records; regimes are mutually exclusive (El Niño E prevails over La Niña C, El Niño C
 over cold E). The non-deseasonalized composites of earlier versions are kept as a sensitivity test
@@ -51,6 +51,6 @@ with a strict neutral baseline that also requires neutral ONI and ICEN (variant 
 
 - `robustness_checks/`: exploratory lag/prewhitening/sample-dependence scripts written while
   preparing the thesis; not part of the pipeline (edit BASE before running).
-- `insitu_records_coverage.csv` and `grace_tws_climatology_by_domain.csv` in
-  `data/processed_derived/` are reference tables produced during thesis preparation.
+- `grace_tws_climatology_by_domain.csv` in `data/processed_derived/` is a reference table
+  produced during thesis preparation.
 - Notebook 04, Sections IV (figure) and VI (tests), use the same in-situ composite functions.

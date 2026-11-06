@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Funciones comunes del repositorio hydrology-peru (tesis v13).
+"""Funciones comunes del repositorio hydrology-peru (tesis doctoral).
 
 Cada cálculo que usan los cuadernos 02 a 05 está definido aquí una sola vez:
 carga de GRACE y de los índices ENOS, series por ámbito hidrográfico de la ANA,
@@ -12,7 +12,7 @@ Los cuadernos importan este módulo con
     import sys; sys.path.insert(0, os.path.join(REPO_NAME, 'notebooks'))
     from comun import *
 
-Método (tesis v13, decisiones de 2026-10-19):
+Método (decisiones de 2026-10-19):
 - Los compuestos por régimen se calculan sobre la anomalía DESESTACIONALIZADA
   (se resta la climatología mensual) y se expresan en % de su desviación estándar
   (sigma interanual), tanto con GRACE como con los registros in situ.

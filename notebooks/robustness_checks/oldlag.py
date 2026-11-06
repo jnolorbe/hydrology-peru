@@ -70,7 +70,7 @@ Ts={}
 for c in ORDER:
     d=seasonal_decompose(clean[c],model='additive',period=12,extrapolate_trend='freq'); Ts[c]=d.trend
 Ts=pd.DataFrame(Ts)
-for lab,(a,b) in [('2002-04..2016-12 (window of v12)',('2002-04','2016-12')),('2002-01..2025-12 (full)',('2002-01','2025-12'))]:
+for lab,(a,b) in [('2002-04..2016-12 (window of an earlier analysis)',('2002-04','2016-12')),('2002-01..2025-12 (full)',('2002-01','2025-12'))]:
     print("\n=== trend component T (3MA) vs raw ONI,",lab)
     rows=[]
     for c in ORDER:

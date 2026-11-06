@@ -1,3 +1,6 @@
 data/insitu_raw_staging/
 .DS_Store
 **/.DS_Store
+
+# Python bytecode
+__pycache__/
